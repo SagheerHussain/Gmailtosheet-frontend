@@ -8,7 +8,7 @@ const App = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       try {
-        await fetch(`http://localhost:5000/api/users/${id}`, {
+        await fetch(`${import.meta.env.VITE_BASE_URL}/api/users/${id}`, {
           method: "DELETE",
         });
         setUsers(users.filter((user) => user._id !== id));
@@ -19,7 +19,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/users")
+    fetch(`${import.meta.env.VITE_BASE_URL}/api/users`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
