@@ -1,3 +1,6 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "rewrites": [
+    { "source": "/auth/:match*", "destination": "/auth/:match*" },
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
